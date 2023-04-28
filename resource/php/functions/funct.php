@@ -171,6 +171,15 @@ function profilePic(){
     }
 }
 
+function profilePicu(){
+    $view = new view();
+    if($view->getdpSRA()!=="" || $view->getdpSRA()!==NULL){
+        echo "<img class='rounded-circle mr-3 profpicu ml-3' alt='100x100' src='resource/img/user.jpg'".$view->getMmSRA().";base64,".base64_encode($view->getdpSRA())."'/>";
+    }else{
+        echo "<img class='rounded-circle profpicu' alt='100x100' src='data:".$view->getMmSRA().";base64,".base64_encode($view->getdpSRA())."'/>";
+    }
+}
+
 function updateProfile(){
     if(input::exists()){
         if(!empty($_POST['College'])){
@@ -263,5 +272,91 @@ function changeP(){
                 }
         }
     }
+}
+
+// Function for Inserting a Status
+function insertS(){
+  if (!empty($_GET['items'])) {
+    $insert = new insert($_GET['items']);
+    if ($insert->insertTask()){
+      echo '<div class=" alert alert-success alert-dismissible fadeshow"            role="alert">
+            You have Inserted a Status Successfully.
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+            </button>
+            </div>';
+    }else{
+      echo '<div class=" alert alert-danger alert-dismissible fadeshow"            role="alert">
+            Insert Status Error!
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+            </button>
+            </div>';
+    }
+  }
+}
+
+function deleteS(){
+  if (!empty($_GET['delete'])) {
+    $delete = new delete($_GET['delete']);
+    if($delete->deleteTask()){
+      echo '<div class=" mt-3 alert alert-warning alert-dismissible fadeshow"            role="alert">
+            You have Deleted your Status.
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+            </button>
+            </div>';
+    }else{
+      echo '<div class="col-md-9 alert alert-danger alert-dismissible fadeshow"            role="alert">
+            <strong>Holy guacamole!</strong> Delete Status Error!
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+            </button>
+            </div>';
+    }
+  }
+}
+
+// Function for Inserting a Chat
+function insertCht(){
+  if (!empty($_GET['chats'])) {
+    $insert = new insert($_GET['chats']);
+    if ($insert->insertMsg()){
+      echo '<div class=" alert alert-success alert-dismissible fadeshow"            role="alert">
+            You have Inserted a Status Successfully.
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+            </button>
+            </div>';
+    }else{
+      echo '<div class=" alert alert-danger alert-dismissible fadeshow"            role="alert">
+            Insert Status Error!
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+            </button>
+            </div>';
+    }
+  }
+}
+
+function deleteCht(){
+  if (!empty($_GET['delete'])) {
+    $delete = new delete($_GET['delete']);
+    if($delete->deleteMsg()){
+      echo '<div class=" mt-3 alert alert-warning alert-dismissible fadeshow"            role="alert">
+            You have Deleted your Status.
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+            </button>
+            </div>';
+    }else{
+      echo '<div class="col-md-9 alert alert-danger alert-dismissible fadeshow"            role="alert">
+            <strong>Holy guacamole!</strong> Delete Status Error!
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+            </button>
+            </div>';
+    }
+  }
 }
  ?>
