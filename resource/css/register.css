@@ -1,0 +1,23 @@
+* {
+    padding: 0;
+    margin: 0;
+    font-family: 'Open Sans', sans-serif;;
+}
+
+.footer {
+    background-color: #fbb805;
+}
+
+.register {
+    font-family: 'Bangers', cursive;
+}
+
+.btn {
+    background-color: #fbb805;
+    border-color: #9e770d;
+}
+
+.btn:hover {
+    background-color: #d39d07;
+
+}
