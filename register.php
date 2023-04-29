@@ -118,14 +118,14 @@ $view = new view;
  </body>
  <footer id="sticky-footer" class="py-4 footer text-white-50 fixed-bottom  slide-in-right">
    <div class="container text-center">
-       <div class="row">
-           <div class="col col-sm-5 text-left">
-               <small>Copyright &copy;Centro Escolar University     Office of the Registrar 2019</small>
-           </div>
-           <div class="col text-right">
-               <small>Created by: Reymart Bolasoc, Amelia Valencia , James Mangalile, Kenneth De Leon , Pamela Reyes , Ellen Mijares</small>
-           </div>
-       </div>
+     <div class="row">
+         <div class="col col-sm-5 text-left text-light">
+             <small>Copyright &copy;Centro Escolar University-BSIT1-A     Group 3 2023</small>
+         </div>
+         <div class="col text-right text-light">
+             <small>Created by: Gabriel Marcelo, Heidel Berg Valerio, Bea Patrice Cortez, Jairo Garcia</small>
+         </div>
+     </div>
    </div>
  </footer>
      <script src="vendor/js/jquery.js"></script>
