@@ -17,6 +17,19 @@ class view extends config{
                 }
         }
 
+        public function rolesSP2(){
+            $config = new config;
+            $con = $config->con();
+            $sql = "SELECT * FROM `roleschool`";
+            $data = $con-> prepare($sql);
+            $data ->execute();
+            $rows =$data-> fetchAll(PDO::FETCH_OBJ);
+                foreach ($rows as $row) {
+                  echo '<option data-tokens=".'.$row->roles_school.'." value="'.$row->roles_school.'">'.$row->roles_school.'</option>';
+                  echo 'success';
+                }
+        }
+
         public function getdpSRA(){
             $user = new user();
             return $user->data()->dp;
@@ -167,3 +180,4 @@ class view extends config{
             }
         }
 }
+?>

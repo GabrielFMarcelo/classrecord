@@ -100,19 +100,19 @@ updateProfile();
                     </tr>
                     <tr>
                         <td>
-                            <div class="row justify-content-center">
-                                <div class="form-group col-md-5">
-                                  <label for="College" >College/s to handle</label>
-                                      <select id="College" name="College[]" class="selectpicker form-control" data-live-search="true" multiple required>
-                                        <?php $view->collegeSP2();?>
-                                      </select>
-                                </div>
-                                <div class="form-group col-md-5">
-                                    <label  >&nbsp;</label>
-                                <input type="hidden" name ="Token" value="<?php echo Token::generate();?>" />
-                                 <input type="submit" value="Update your profile" class=" form-control btn btn-dark" />
-                                </div>
-                             </div>
+                        <div class="row justify-content-center">
+                          <div class="form-group col-md-5">
+                            <label for="College" >College/s to handle</label>
+                                <select id="College" name="College[]" class="selectpicker form-control" data-live-search="true" multiple required>
+                                  <?php $view->collegeSP2();?>
+                                </select>
+                          </div>
+                          <div class="form-group col-5">
+                            <label for="Role">Role</label>
+                                <select id="Role" name="Role[]" class="selectpicker form-control" data-live-search="true" multiple required>
+                                  <?php $view->rolesSP2();?>
+                                </select>
+                          </div>
                         </td>
                     </tr>
                 </table>

@@ -13,31 +13,39 @@ $view = new view;
    <title>Registrar Portal</title>
    <link rel="stylesheet" type="text/css"  href="vendor/css/bootstrap.min.css">
    <link href="vendor/css/all.css" rel="stylesheet">
-   <link rel="stylesheet" type="text/css"  href="resource/css/register.css">
+   <link rel="stylesheet" type="text/css"  href="resource/css/styles.css">
    <link rel="stylesheet" type="text/css"  href="vendor/css/bootstrap-select.min.css">
-   <link rel="preconnect" href="https://fonts.googleapis.com">
-   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-   <link href="https://fonts.googleapis.com/css2?family=Bangers&family=Bungee&family=Cormorant&family=Nunito:wght@300&family=Playfair+Display:wght@500&family=Salsa&display=swap" rel="stylesheet">
-   <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,400;1,300&family=Open+Sans:wght@300;400&display=swap" rel="stylesheet">
 
  </head>
- <body> 
-         <nav class="navbar navbar-dark bg-white slide-in-left">
-             <img src="resource/img/logo.png" height="70" class="d-inline-block align-top"
-               alt="skyhigh"><h3 class="ib">
+ <body>
+         <nav class="navbar navbar-dark bg-white shadow-sm slide-in-left">
+           <a class="navbar-brand" href="https://malolos.ceu.edu.ph/">
+             <img src="resource/img/logo.jpg" height="70" class="d-inline-block align-top"
+               alt="mdb logo"><h3 class="ib">
+           </a>
+           <a href="exportTableAdmin.php"><i class="fas fa-table ceucolor"></i></a>
+           <a href="statsAdmin.php"><i class="fas fa-chart-line ceucolor"></i></a>
+           <a href="userVerificationAdmin.php"><i class="fas fa-user-plus ceucolor"></i></a>
+           <a href="verificationAdmin.php"><i class="fas fa-user-graduate ceucolor"></i></a>
+           <a href="viewAlumniAdmin.php"><i class="fa fa-graduation-cap ceucolor"></i></a>
+           <a href="nTransactionAdmin.php"><i class="fas fa-file-upload ceucolor"></i></a>
+           <a href="view_pending_requests.php"><i class="fas fa-home ceucolor"></i></a>
+           <a href="https:/www.facebook.com/theCEUofficial/"><i class="fab fa-facebook-f ceucolor"></i></a>
+           <a href="https://www.instagram.com/ceuofficial/"><i class="fab fa-instagram ceucolor"></i></a>
+           <a href="https://twitter.com/ceumalolos"><i class="fab fa-twitter ceucolor"></i></a>
          </nav>
 
          <div class="container mt-4 puff-in-center">
              <div class="row">
                  <div class="col-12">
-                     <h1 class="text-center register">Register New Student Records Assistant</h1>
+                     <h1 class="text-center">Register New Student Records Assistant</h1>
                  </div>
             </div>
             <?php
                 vald();
             ?>
             <form action="" method="post">
-                <table class="table">
+                <table class="table ">
                     <tr>
                         <td>
                             <div class="row justify-content-center">
@@ -52,7 +60,7 @@ $view = new view;
                                 <div class="form-group col-4">
                                  <label for = "ConfirmPassword"> Confirm Password:</label>
                                  <input type="password" class="form-control" name="ConfirmPassword" id="ConfirmPassword" value ="<?php echo input::get('ConfirmPassword');?>" autocomplete="off"required/>
-                                </div>                            
+                                </div>
                              </div>
                         </td>
                     </tr>
@@ -70,16 +78,14 @@ $view = new view;
                                       </select>
                                 </div>
                                 <div class="form-group col-4">
-                                 <label for = "email" class=""> Email Address</label>
-                                 <input class="form-control"  type = "text" name="email" id="email" value ="<?php echo input::get('email');?>"/required>
+                                  <label for="Role" >Roles</label>
+                                      <select id="Role" name="Role[]" class="selectpicker form-control" data-live-search="true" multiple required>
+                                        <?php $view->rolesSP2();?>
+                                      </select>
                                 </div>
                                 <div class="form-group col-4">
-                                <label for="role">Role</label>
-                                <select name="role" id="role" class="form-control" value ="<?php echo input::get('role');?>"/required>
-                                    <option value="">Select Role</option>
-                                    <option value="teacher">Teacher</option>
-                                    <option value="student">Student</option>
-                                </select>
+                                 <label for = "email" class=""> Email Address</label>
+                                 <input class="form-control"  type = "text" name="email" id="email" value ="<?php echo input::get('email');?>"/required>
                                 </div>
                              </div>
                         </td>
@@ -90,7 +96,7 @@ $view = new view;
                                 <div class="form-group col-7">
                                     <label  >&nbsp;</label>
                                 <input type="hidden" name ="Token" value="<?php echo Token::generate();?>" />
-                                 <input type="submit" value="Register New SRA" class=" form-control btn" />
+                                 <input type="submit" value="Register New SRA" class=" form-control btn btn-primary" />
                                 </div>
                             </div>
                         </td>
@@ -99,19 +105,17 @@ $view = new view;
              </form>
          </div>
  </body>
- <footer id="sticky-footer" class="py-4 text-dark-50 fixed-bottom footer slide-in-right">
+ <footer id="sticky-footer" class="py-4 bg-dark text-white-50 fixed-bottom  slide-in-right">
    <div class="container text-center">
        <div class="row">
            <div class="col col-sm-5 text-left">
                <small>Copyright &copy;Centro Escolar University     Office of the Registrar 2019</small>
            </div>
            <div class="col text-right">
-               <small>Created by: Heidelberg Valerio, Bea Patrice, Gabriel Marcelo, Jairo Garcia</small>
+               <small>Created by: Reymart Bolasoc, Amelia Valencia , James Mangalile, Kenneth De Leon , Pamela Reyes , Ellen Mijares</small>
            </div>
        </div>
    </div>
-
-   
  </footer>
      <script src="vendor/js/jquery.js"></script>
      <script src="vendor/js/popper.js"></script>

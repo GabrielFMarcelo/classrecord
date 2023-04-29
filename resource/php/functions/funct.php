@@ -52,6 +52,11 @@ function vald(){
          }else{
             $_POST['College'] ="";
          }
+         if(!empty($_POST['Role'])){
+             $_POST['Role'] = implode(',',input::get('Role'));
+         }else{
+            $_POST['Role'] ="";
+         }
         $validate = new Validate;
         $validate = $validate->check($_POST,array(
             'username'=>array(
@@ -76,6 +81,9 @@ function vald(){
             'email'=>array(
                 'required'=>'true'
             ),
+            'Role'=>array(
+                'required'=>'true'
+            ),
             'College'=>array(
                 'required'=>'true'
             )));
@@ -92,6 +100,7 @@ function vald(){
                         'joined'=>date('Y-m-d H:i:s'),
                         'groups'=>1,
                         'colleges'=> input::get('College'),
+                        'role'=> input::get('Role'),
                         'email'=> input::get('email'),
                     ));
 
@@ -162,201 +171,210 @@ function vald(){
             }
         }
 
-function profilePic(){
-    $view = new view();
-    if($view->getdpSRA()!=="" || $view->getdpSRA()!==NULL){
-        echo "<img class='rounded-circle profpic img-thumbnail ml-3' alt='100x100' src='data:".$view->getMmSRA().";base64,".base64_encode($view->getdpSRA())."'/>";
-    }else{
-        echo "<img class='rounded-circle profpic img-thumbnail' alt='100x100' src='resource/img/user.jpg'/>";
-    }
-}
-
-function profilePicu(){
-    $view = new view();
-    if($view->getdpSRA()!=="" || $view->getdpSRA()!==NULL){
-        echo "<img class='rounded-circle mr-3 profpicu ml-3' alt='100x100' src='resource/img/user.jpg'".$view->getMmSRA().";base64,".base64_encode($view->getdpSRA())."'/>";
-    }else{
-        echo "<img class='rounded-circle profpicu' alt='100x100' src='data:".$view->getMmSRA().";base64,".base64_encode($view->getdpSRA())."'/>";
-    }
-}
-
-function updateProfile(){
-    if(input::exists()){
-        if(!empty($_POST['College'])){
-            $_POST['College'] = implode(',',input::get('College'));
-        }else{
-           $_POST['College'] ="";
-        }
-
-        $validate = new Validate;
-        $validate = $validate->check($_POST,array(
-            'username'=>array(
-                'required'=>'true',
-                'min'=>4,
-                'max'=>20,
-                'unique'=>'tbl_accounts'
-            ),
-            'fullName'=>array(
-                'required'=>'true',
-                'min'=>2,
-                'max'=>50,
-            ),
-            'email'=>array(
-                'required'=>'true',
-                'min'=>5,
-                'max'=>50,
-            ),
-            'College'=>array(
-                'required'=>'true'
-            )));
-
-            if($validate->passed()){
-                $user = new user();
-
-                try {
-                    $user->update(array(
-                        'username'=>input::get('username'),
-                        'name'=> input::get('fullName'),
-                        'colleges'=> input::get('College'),
-                        'email'=> input::get('email')
-                    ));
-                } catch (Exception $e) {
-                    die($e->getMessage());
-                }
-                Redirect::to('template.php');
+        function profilePic(){
+            $view = new view();
+            if($view->getdpSRA()!=="" || $view->getdpSRA()!==NULL){
+                echo "<img class='rounded-circle profpic img-thumbnail ml-3' alt='100x100' src='data:".$view->getMmSRA().";base64,".base64_encode($view->getdpSRA())."'/>";
             }else{
-                foreach ($validate->errors()as $error) {
-                pError($error);
-                }
+                echo "<img class='rounded-circle profpic img-thumbnail' alt='100x100' src='resource/img/user.jpg'/>";
+            }
         }
-
-    }
-}
-
-function changeP(){
-    if(input::exists()){
-        $validate = new Validate;
-        $validate = $validate->check($_POST,array(
-            'password_current'=>array(
-                'required'=>'true',
-            ),
-            'password'=>array(
-                'required'=>'true',
-                'min'=>6,
-            ),
-            'ConfirmPassword'=>array(
-                'required'=>'true',
-                'matches'=>'password'
-            )));
-
-            if($validate->passed()){
-                $user = new user();
-                if(Hash::make(input::get('password_current'),$user->data()->salt) !== $user->data()->password){
-                    curpassError();
+        
+        function profilePicu(){
+            $view = new view();
+            if($view->getdpSRA()!=="" || $view->getdpSRA()!==NULL){
+                echo "<img class='rounded-circle mr-3 profpicu ml-3' alt='100x100' src='resource/img/user.jpg'".$view->getMmSRA().";base64,".base64_encode($view->getdpSRA())."'/>";
+            }else{
+                echo "<img class='rounded-circle profpicu' alt='100x100' src='data:".$view->getMmSRA().";base64,".base64_encode($view->getdpSRA())."'/>";
+            }
+        }
+        
+        function updateProfile(){
+            if(input::exists()){
+                if(!empty($_POST['College'])){
+                    $_POST['College'] = implode(',',input::get('College'));
                 }else{
-                    $user = new user();
-                    $salt = Hash::salt(32);
-                    try {
-                        $user->update(array(
-                            'password'=>Hash::make(input::get('password'),$salt),
-                            'salt'=>$salt
-                        ));
-                    } catch (Exception $e) {
-                        die($e->getMessage());
-                    }
-                    Redirect::to('template.php');
+                   $_POST['College'] ="";
                 }
-            }else{
-                foreach ($validate->errors()as $error) {
-                pError($error);
+                if(!empty($_POST['Role'])){
+                    $_POST['Role'] = implode(',',input::get('Role'));
+                }else{
+                   $_POST['Role'] ="";
                 }
+        
+                $validate = new Validate;
+                $validate = $validate->check($_POST,array(
+                    'username'=>array(
+                        'required'=>'true',
+                        'min'=>4,
+                        'max'=>20,
+                        'unique'=>'tbl_accounts'
+                    ),
+                    'fullName'=>array(
+                        'required'=>'true',
+                        'min'=>2,
+                        'max'=>50,
+                    ),
+                    'email'=>array(
+                        'required'=>'true',
+                        'min'=>5,
+                        'max'=>50,
+                    ),
+                    'College'=>array(
+                        'required'=>'true'
+                    ),
+                    'Role'=>array(
+                            'required'=>'true'
+                    )));
+        
+                    if($validate->passed()){
+                        $user = new user();
+        
+                        try {
+                            $user->update(array(
+                                'username'=>input::get('username'),
+                                'name'=> input::get('fullName'),
+                                'colleges'=> input::get('College'),
+                                'role'=> input::get('Role'),
+                                'email'=> input::get('email')
+                            ));
+                        } catch (Exception $e) {
+                            die($e->getMessage());
+                        }
+                        Redirect::to('template.php');
+                    }else{
+                        foreach ($validate->errors()as $error) {
+                        pError($error);
+                        }
+                }
+        
+            }
         }
-    }
-}
-
-// Function for Inserting a Status
-function insertS(){
-  if (!empty($_GET['items'])) {
-    $insert = new insert($_GET['items']);
-    if ($insert->insertTask()){
-      echo '<div class=" alert alert-success alert-dismissible fadeshow"            role="alert">
-            You have Inserted a Status Successfully.
-            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-            </button>
-            </div>';
-    }else{
-      echo '<div class=" alert alert-danger alert-dismissible fadeshow"            role="alert">
-            Insert Status Error!
-            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-            </button>
-            </div>';
-    }
-  }
-}
-
-function deleteS(){
-  if (!empty($_GET['delete'])) {
-    $delete = new delete($_GET['delete']);
-    if($delete->deleteTask()){
-      echo '<div class=" mt-3 alert alert-warning alert-dismissible fadeshow"            role="alert">
-            You have Deleted your Status.
-            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-            </button>
-            </div>';
-    }else{
-      echo '<div class="col-md-9 alert alert-danger alert-dismissible fadeshow"            role="alert">
-            <strong>Holy guacamole!</strong> Delete Status Error!
-            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-            </button>
-            </div>';
-    }
-  }
-}
-
-// Function for Inserting a Chat
-function insertCht(){
-  if (!empty($_GET['chats'])) {
-    $insert = new insert($_GET['chats']);
-    if ($insert->insertMsg()){
-      echo '<div class=" alert alert-success alert-dismissible fadeshow"            role="alert">
-            You have Inserted a Status Successfully.
-            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-            </button>
-            </div>';
-    }else{
-      echo '<div class=" alert alert-danger alert-dismissible fadeshow"            role="alert">
-            Insert Status Error!
-            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-            </button>
-            </div>';
-    }
-  }
-}
-
-function deleteCht(){
-  if (!empty($_GET['delete'])) {
-    $delete = new delete($_GET['delete']);
-    if($delete->deleteMsg()){
-      echo '<div class=" mt-3 alert alert-warning alert-dismissible fadeshow"            role="alert">
-            You have Deleted your Status.
-            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-            </button>
-            </div>';
-    }else{
-      echo '<div class="col-md-9 alert alert-danger alert-dismissible fadeshow"            role="alert">
-            <strong>Holy guacamole!</strong> Delete Status Error!
-            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-            </button>
-            </div>';
-    }
-  }
-}
- ?>
+        
+        function changeP(){
+            if(input::exists()){
+                $validate = new Validate;
+                $validate = $validate->check($_POST,array(
+                    'password_current'=>array(
+                        'required'=>'true',
+                    ),
+                    'password'=>array(
+                        'required'=>'true',
+                        'min'=>6,
+                    ),
+                    'ConfirmPassword'=>array(
+                        'required'=>'true',
+                        'matches'=>'password'
+                    )));
+        
+                    if($validate->passed()){
+                        $user = new user();
+                        if(Hash::make(input::get('password_current'),$user->data()->salt) !== $user->data()->password){
+                            curpassError();
+                        }else{
+                            $user = new user();
+                            $salt = Hash::salt(32);
+                            try {
+                                $user->update(array(
+                                    'password'=>Hash::make(input::get('password'),$salt),
+                                    'salt'=>$salt
+                                ));
+                            } catch (Exception $e) {
+                                die($e->getMessage());
+                            }
+                            Redirect::to('template.php');
+                        }
+                    }else{
+                        foreach ($validate->errors()as $error) {
+                        pError($error);
+                        }
+                }
+            }
+        }
+        
+        // Function for Inserting a Status
+        function insertS(){
+          if (!empty($_GET['items'])) {
+            $insert = new insert($_GET['items']);
+            if ($insert->insertTask()){
+              echo '<div class=" alert alert-success alert-dismissible fadeshow"            role="alert">
+                    You have Inserted a Status Successfully.
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                    </button>
+                    </div>';
+            }else{
+              echo '<div class=" alert alert-danger alert-dismissible fadeshow"            role="alert">
+                    Insert Status Error!
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                    </button>
+                    </div>';
+            }
+          }
+        }
+        
+        function deleteS(){
+          if (!empty($_GET['delete'])) {
+            $delete = new delete($_GET['delete']);
+            if($delete->deleteTask()){
+              echo '<div class=" mt-3 alert alert-warning alert-dismissible fadeshow"            role="alert">
+                    You have Deleted your Status.
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                    </button>
+                    </div>';
+            }else{
+              echo '<div class="col-md-9 alert alert-danger alert-dismissible fadeshow"            role="alert">
+                    <strong>Holy guacamole!</strong> Delete Status Error!
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                    </button>
+                    </div>';
+            }
+          }
+        }
+        
+        // Function for Inserting a Chat
+        function insertCht(){
+          if (!empty($_GET['chats'])) {
+            $insert = new insert($_GET['chats']);
+            if ($insert->insertMsg()){
+              echo '<div class=" alert alert-success alert-dismissible fadeshow"            role="alert">
+                    You have Inserted a Status Successfully.
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                    </button>
+                    </div>';
+            }else{
+              echo '<div class=" alert alert-danger alert-dismissible fadeshow"            role="alert">
+                    Insert Status Error!
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                    </button>
+                    </div>';
+            }
+          }
+        }
+        
+        function deleteCht(){
+          if (!empty($_GET['delete'])) {
+            $delete = new delete($_GET['delete']);
+            if($delete->deleteMsg()){
+              echo '<div class=" mt-3 alert alert-warning alert-dismissible fadeshow"            role="alert">
+                    You have Deleted your Status.
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                    </button>
+                    </div>';
+            }else{
+              echo '<div class="col-md-9 alert alert-danger alert-dismissible fadeshow"            role="alert">
+                    <strong>Holy guacamole!</strong> Delete Status Error!
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                    </button>
+                    </div>';
+            }
+          }
+        }
+         ?> 
