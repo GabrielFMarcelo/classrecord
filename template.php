@@ -119,11 +119,20 @@ updateProfile();
              </form>
         </div>
         <div class="col-md-4">
-        <?php
+              <?php
               echo "<br>";
-
               $view = new view();
               $view->getnames();
+              $view->getnames2();
+              $view->getnames3();
+              $view->getnames4();
+              $view->getnames5();
+              $view->getnames8();
+              ?>
+              <?php
+              $view = new view();
+              $id = 0;
+              $view->showRoles($id);
               ?>
         </div>
     </div>
