@@ -79,7 +79,7 @@ require_once $_SERVER['DOCUMENT_ROOT'].'/classrecord/resource/php/class/core/ini
                 <small class="text-dark">&copy;Centro Escolar University BSIT-1A</small>
               </div>
               <div class="col text-right">
-                <small class="text-dark">Created by: Marcelo Gabriel, Heidel Valerio, Bea Patrice, Jairo A. Garcia</small>
+                <small class="text-dark">Created by: Gabriel Marcelo, Heidel Valerio, Bea Patrice, Jairo A. Garcia</small>
               </div>
             </div>
           </div>
