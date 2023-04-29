@@ -74,96 +74,16 @@ class view extends config{
               echo $data['email'];
               echo "</div>";
 
+              echo "<div class='mt-3 mx-auto rounded-pill pt-3 pl-1 w-75 hr pb-3 text-light bg-dark'>";
+              echo "<h5>Role: </h5>";
+              echo $data['role'];
+              echo "</div>";
+
             echo "</div>";
           }
         }
 
         public function getnames(){
-            $con = $this->con();
-            $sql = "SELECT * FROM `tbl_accounts` WHERE id = 1";
-            $data = $con->prepare($sql);
-            $data->execute();
-            $result = $data->fetchAll(PDO::FETCH_ASSOC);
-
-            foreach ($result as $data) {
-                echo "<div class='mt-3 mx-auto rounded-pill pt-3 pl-1 w-75 hr pb-3 text-light bg-dark'>";
-                echo "<a href='template.php?id=1' name='name-link' method='post'>";
-                echo profilePicu();
-                echo $data['username'];
-                echo "</a>";
-                echo "</div>";
-            }
-        }
-
-        public function getnames2(){
-            $con = $this->con();
-            $sql = "SELECT * FROM `tbl_accounts` WHERE id = 2";
-            $data = $con->prepare($sql);
-            $data->execute();
-            $result = $data->fetchAll(PDO::FETCH_ASSOC);
-
-            foreach ($result as $data) {
-                echo "<div class='mt-3 mx-auto rounded-pill pt-3 pl-1 w-75 hr pb-3 text-light bg-dark'>";
-                echo "<a href='template.php?id=2' name='name-link' method='post'>";
-                echo profilePicu();
-                echo $data['username'];
-                echo "</a>";
-                echo "</div>";
-            }
-        }
-
-        public function getnames3(){
-            $con = $this->con();
-            $sql = "SELECT * FROM `tbl_accounts` WHERE id = 3";
-            $data = $con->prepare($sql);
-            $data->execute();
-            $result = $data->fetchAll(PDO::FETCH_ASSOC);
-
-            foreach ($result as $data) {
-                echo "<div class='mt-3 mx-auto rounded-pill pt-3 pl-1 w-75 hr pb-3 text-light bg-dark'>";
-                echo "<a href='template.php?id=3' name='name-link' method='post'>";
-                echo profilePicu();
-                echo $data['username'];
-                echo "</a>";
-                echo "</div>";
-            }
-        }
-
-        public function getnames4(){
-            $con = $this->con();
-            $sql = "SELECT * FROM `tbl_accounts` WHERE id = 4";
-            $data = $con->prepare($sql);
-            $data->execute();
-            $result = $data->fetchAll(PDO::FETCH_ASSOC);
-
-            foreach ($result as $data) {
-                echo "<div class='mt-3 mx-auto rounded-pill pt-3 pl-1 w-75 hr pb-3 text-light bg-dark'>";
-                echo "<a href='template.php?id=4' name='name-link' method='post'>";
-                echo profilePicu();
-                echo $data['username'];
-                echo "</a>";
-                echo "</div>";
-            }
-        }
-
-        public function getnames5(){
-            $con = $this->con();
-            $sql = "SELECT * FROM `tbl_accounts` WHERE id = 5";
-            $data = $con->prepare($sql);
-            $data->execute();
-            $result = $data->fetchAll(PDO::FETCH_ASSOC);
-
-            foreach ($result as $data) {
-                echo "<div class='mt-3 mx-auto rounded-pill pt-3 pl-1 w-75 hr pb-3 text-light bg-dark'>";
-                echo "<a href='template.php?id=5' name='name-link' method='post'>";
-                echo profilePicu();
-                echo $data['username'];
-                echo "</a>";
-                echo "</div>";
-            }
-        }
-
-        public function getnames8(){
             $con = $this->con();
             $sql = "SELECT * FROM `tbl_accounts` WHERE id = 8";
             $data = $con->prepare($sql);
@@ -173,6 +93,91 @@ class view extends config{
             foreach ($result as $data) {
                 echo "<div class='mt-3 mx-auto rounded-pill pt-3 pl-1 w-75 hr pb-3 text-light bg-dark'>";
                 echo "<a href='template.php?id=8' name='name-link' method='post'>";
+                echo profilePicu();
+                echo $data['username'];
+                echo "</a>";
+                echo "</div>";
+            }
+        }
+
+        public function getnames2(){
+            $con = $this->con();
+            $sql = "SELECT * FROM `tbl_accounts` WHERE id = 10";
+            $data = $con->prepare($sql);
+            $data->execute();
+            $result = $data->fetchAll(PDO::FETCH_ASSOC);
+
+            foreach ($result as $data) {
+                echo "<div class='mt-3 mx-auto rounded-pill pt-3 pl-1 w-75 hr pb-3 text-light bg-dark'>";
+                echo "<a href='template.php?id=10' name='name-link' method='post'>";
+                echo profilePicu();
+                echo $data['username'];
+                echo "</a>";
+                echo "</div>";
+            }
+        }
+
+        public function getnames3(){
+            $con = $this->con();
+            $sql = "SELECT * FROM `tbl_accounts` WHERE id = 11";
+            $data = $con->prepare($sql);
+            $data->execute();
+            $result = $data->fetchAll(PDO::FETCH_ASSOC);
+
+            foreach ($result as $data) {
+                echo "<div class='mt-3 mx-auto rounded-pill pt-3 pl-1 w-75 hr pb-3 text-light bg-dark'>";
+                echo "<a href='template.php?id=11' name='name-link' method='post'>";
+                echo profilePicu();
+                echo $data['username'];
+                echo "</a>";
+                echo "</div>";
+            }
+        }
+
+        public function getnames4(){
+            $con = $this->con();
+            $sql = "SELECT * FROM `tbl_accounts` WHERE id = 12";
+            $data = $con->prepare($sql);
+            $data->execute();
+            $result = $data->fetchAll(PDO::FETCH_ASSOC);
+
+            foreach ($result as $data) {
+                echo "<div class='mt-3 mx-auto rounded-pill pt-3 pl-1 w-75 hr pb-3 text-light bg-dark'>";
+                echo "<a href='template.php?id=12' name='name-link' method='post'>";
+                echo profilePicu();
+                echo $data['username'];
+                echo "</a>";
+                echo "</div>";
+            }
+        }
+
+        public function getnames5(){
+            $con = $this->con();
+            $sql = "SELECT * FROM `tbl_accounts` WHERE id = 13";
+            $data = $con->prepare($sql);
+            $data->execute();
+            $result = $data->fetchAll(PDO::FETCH_ASSOC);
+
+            foreach ($result as $data) {
+                echo "<div class='mt-3 mx-auto rounded-pill pt-3 pl-1 w-75 hr pb-3 text-light bg-dark'>";
+                echo "<a href='template.php?id=13' name='name-link' method='post'>";
+                echo profilePicu();
+                echo $data['username'];
+                echo "</a>";
+                echo "</div>";
+            }
+        }
+
+        public function getnames8(){
+            $con = $this->con();
+            $sql = "SELECT * FROM `tbl_accounts` WHERE id = 14";
+            $data = $con->prepare($sql);
+            $data->execute();
+            $result = $data->fetchAll(PDO::FETCH_ASSOC);
+
+            foreach ($result as $data) {
+                echo "<div class='mt-3 mx-auto rounded-pill pt-3 pl-1 w-75 hr pb-3 text-light bg-dark'>";
+                echo "<a href='template.php?id=14' name='name-link' method='post'>";
                 echo profilePicu();
                 echo $data['username'];
                 echo "</a>";

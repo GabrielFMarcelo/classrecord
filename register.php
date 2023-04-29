@@ -15,25 +15,36 @@ $view = new view;
    <link href="vendor/css/all.css" rel="stylesheet">
    <link rel="stylesheet" type="text/css"  href="resource/css/styles.css">
    <link rel="stylesheet" type="text/css"  href="vendor/css/bootstrap-select.min.css">
+   <link rel="stylesheet" type="text/css"  href="resource/css/register.css">
+   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bangers&family=Bungee&family=Cormorant&family=Nunito:wght@300&family=Playfair+Display:wght@500&family=Salsa&display=swap" rel="stylesheet">
 
  </head>
  <body>
-         <nav class="navbar navbar-dark bg-white shadow-sm slide-in-left">
-           <a class="navbar-brand" href="https://malolos.ceu.edu.ph/">
-             <img src="resource/img/logo.jpg" height="70" class="d-inline-block align-top"
-               alt="mdb logo"><h3 class="ib">
-           </a>
-           <a href="exportTableAdmin.php"><i class="fas fa-table ceucolor"></i></a>
-           <a href="statsAdmin.php"><i class="fas fa-chart-line ceucolor"></i></a>
-           <a href="userVerificationAdmin.php"><i class="fas fa-user-plus ceucolor"></i></a>
-           <a href="verificationAdmin.php"><i class="fas fa-user-graduate ceucolor"></i></a>
-           <a href="viewAlumniAdmin.php"><i class="fa fa-graduation-cap ceucolor"></i></a>
-           <a href="nTransactionAdmin.php"><i class="fas fa-file-upload ceucolor"></i></a>
-           <a href="view_pending_requests.php"><i class="fas fa-home ceucolor"></i></a>
-           <a href="https:/www.facebook.com/theCEUofficial/"><i class="fab fa-facebook-f ceucolor"></i></a>
-           <a href="https://www.instagram.com/ceuofficial/"><i class="fab fa-instagram ceucolor"></i></a>
-           <a href="https://twitter.com/ceumalolos"><i class="fab fa-twitter ceucolor"></i></a>
-         </nav>
+ <header class="bg">
+     <nav class="p-3 navbar navbar-expand-lg ">
+       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+         <span class="navbar-toggler-icon"></span>
+       </button>
+       <div class="collapse navbar-collapse" id="navbarNav">
+         <ul class="navbar-nav mx-auto pr-5">
+         <li class="nav-item mr-4 text-light font-weight-bold">
+          <img class="logo" src="./resource/img/sky.png" alt="">
+          <h2 class="p-3 d-inline">Sky High</h2>
+          </li>
+           <li class="nav-item mr-4 active ">
+             <a class="nav-link text-light" href="template.php">Home</a>
+           </li>
+           <li class="nav-item mr-4 font-weight-bold">
+             <a class="nav-link text-light" href="register.php">Register</a>
+           </li>
+           <li class="nav-item mr-4">
+             <a class="nav-link text-light" href="logout.php">Log Out</a>
+           </li>
+         </ul>
+       </div>
+     </nav>
+     </header>
 
          <div class="container mt-4 puff-in-center">
              <div class="row">
@@ -96,7 +107,7 @@ $view = new view;
                                 <div class="form-group col-7">
                                     <label  >&nbsp;</label>
                                 <input type="hidden" name ="Token" value="<?php echo Token::generate();?>" />
-                                 <input type="submit" value="Register New SRA" class=" form-control btn btn-primary" />
+                                 <input type="submit" value="Register New SRA" class=" form-control btn btn-dark" />
                                 </div>
                             </div>
                         </td>
@@ -105,7 +116,7 @@ $view = new view;
              </form>
          </div>
  </body>
- <footer id="sticky-footer" class="py-4 bg-dark text-white-50 fixed-bottom  slide-in-right">
+ <footer id="sticky-footer" class="py-4 footer text-white-50 fixed-bottom  slide-in-right">
    <div class="container text-center">
        <div class="row">
            <div class="col col-sm-5 text-left">

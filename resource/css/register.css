@@ -1,23 +1,92 @@
-* {
-    padding: 0;
+*{
     margin: 0;
-    font-family: 'Open Sans', sans-serif;;
-}
-
-.footer {
-    background-color: #fbb805;
-}
-
-.register {
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  html{
+    scroll-behavior: smooth;
+  }
+  
+  body{
+    background-color: #F6F6F6;
+  }
+  
+  section{
+    min-height: 100vh;
+  }
+  
+  .logo{
+    height: 35px;
+    width: 50px;
+  }
+  
+  .gif{
+    height: 100px;
+  }
+  
+  .profpicu{
+    height: 50px;
+    width: 50px;
+  }
+  
+  .buto{
+    color: #2B4753;
+  }
+  
+  .navbar{
+   background-color: #362424;
+  }
+  
+  .footer{
+    background-color: #362424;
+  }
+  
+  .nav-link{
+    color: black;
+    text-decoration: none;
+  }
+  
+  h1, h2{
     font-family: 'Bangers', cursive;
-}
-
-.btn {
-    background-color: #fbb805;
-    border-color: #9e770d;
-}
-
-.btn:hover {
-    background-color: #d39d07;
-
-}
+  }
+  
+  .navbar-toggler-icon{
+    color: black;
+  }
+  
+  .bg {
+    background-color: beige;
+  }
+  
+  @-webkit-keyframes AnimateBG {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
+  }
+  
+  @keyframes AnimateBG {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
+  }
+  
+  @media (max-width:820px) {
+    .profpic{
+      height: 100px;
+      width: 300px;
+    }
+  }
+  

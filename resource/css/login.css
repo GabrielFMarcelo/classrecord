@@ -3,19 +3,36 @@
     margin: 0;
 }
 
+section{
+    min-height: 100vh;
+}
+
+.login{
+    background-image: linear-gradient(rgba(25, 25, 25, 0.59),rgba(25, 25, 25, 0.59)), url(../img/scale.jpg);
+    background-position: center;
+    background-size: cover;
+}
+
+.logo{
+    height: 150px;
+    width: 200px;
+    align-items: center;
+    justify-content: c;
+}
+
 .h1 {
     font-family: 'Bangers', cursive;
 }
 
 .footer {
-    background-color: #fbb805;
+    background-color: #0a5891;
 }
 
 .btn {
-    background-color: #fbb805;
+    background-color: #1189c4;
 }
 .btn:hover{
-    background-color: #d39d07;
+    background-color: #123560;
 }
 
 .bgcol6 {

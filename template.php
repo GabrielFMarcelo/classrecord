@@ -14,13 +14,12 @@ updateProfile();
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
    <link rel="stylesheet" type="text/css"  href="vendor/css/bootstrap.min.css">
    <link href="vendor/css/all.css" rel="stylesheet">
-   <link rel="stylesheet" type="text/css"  href="resource/css/updateprofile.css">
+   <link rel="stylesheet" type="text/css"  href="resource/css/template.css">
    <link rel="stylesheet" type="text/css"  href="resource/css/speech.css">
    <link rel="stylesheet" type="text/css"  href="vendor/css/bootstrap-select.min.css">
    <link rel="preconnect" href="https://fonts.googleapis.com">
-   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-   <link href="https://fonts.googleapis.com/css2?family=Salsa&display=swap" rel="stylesheet">
-   <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bangers&family=Bungee&family=Cormorant&family=Nunito:wght@300&family=Playfair+Display:wght@500&family=Salsa&display=swap" rel="stylesheet">
 
    <title>Home</title>
    <link rel="shortcut icon" href="resource/img/favicon.ico" type="image/x-icon">
@@ -28,35 +27,32 @@ updateProfile();
 
  </head>
  <body>
-   <section class="mb-3">
-
-   <header class="bg">
-     <img class="logo" src="./resource/img/sky.png" alt="">
-     <h2 class=" p-3">Sky High</h2>
-     <nav class="p-3 navbar navbar-expand-lg bg-transparent">
+  <header class="bg">
+     <nav class="p-3 navbar navbar-expand-lg ">
        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
          <span class="navbar-toggler-icon"></span>
        </button>
        <div class="collapse navbar-collapse" id="navbarNav">
          <ul class="navbar-nav mx-auto pr-5">
+         <li class="nav-item mr-4 text-light font-weight-bold">
+          <img class="logo" src="./resource/img/sky.png" alt="">
+          <h2 class="p-3 d-inline">Sky High</h2>
+          </li>
            <li class="nav-item mr-4 font-weight-bold">
-             <a class="nav-link" href="template.php">Home</a>
+             <a class="nav-link text-light" href="template.php">Home</a>
            </li>
            <li class="nav-item mr-4 active">
-             <a class="nav-link" href="updateprofile.php">Update Profile</a>
+             <a class="nav-link text-light" href="register.php">Register</a>
            </li>
            <li class="nav-item mr-4">
-             <a class="nav-link" href="changepassword.php">Change Password</a>
-           </li>
-           <li class="nav-item mr-4">
-             <a class="nav-link" href="logout.php">Log Out</a>
+             <a class="nav-link text-light" href="logout.php">Log Out</a>
            </li>
          </ul>
        </div>
      </nav>
-   </header>
-   <div class="container text-center">
-   <img class="gif mt-2 mb-2" src="https://www.animatedimages.org/data/media/218/animated-penguin-image-0051.gif" alt="">
+     </header>
+   <section class="mb-3">
+   <div class="container text-center pt-5">
                      <h1 class="text-center mb-4">View Information</h1>
     <div class="row">
         <div class="col-md-8">
@@ -113,12 +109,18 @@ updateProfile();
                                   <?php $view->rolesSP2();?>
                                 </select>
                           </div>
+                          <div class="form-group col-md-5">
+                                    <label  >&nbsp;</label>
+                                <input type="hidden" name ="Token" value="<?php echo Token::generate();?>" />
+                                 <input type="submit" value="Update your profile" class=" form-control btn btn-dark" />
+                                </div>
                         </td>
                     </tr>
                 </table>
              </form>
         </div>
         <div class="col-md-4">
+          Accounts
               <?php
               echo "<br>";
               $view = new view();
@@ -137,14 +139,14 @@ updateProfile();
         </div>
     </div>
     </section>
- <footer class="py-4 bg text-dark-50 slide-in-right">
+ <footer class="py-4 footer slide-in-right">
    <div class="container text-center">
        <div class="row">
-           <div class="col col-sm-5 text-left">
+           <div class="col col-sm-5 text-left text-light">
                <small>Copyright &copy;Centro Escolar University-BSIT1-A     Group 3 2023</small>
            </div>
-           <div class="col text-right">
-               <small>Created by: Gabriel Marcelo, Heidel Berg Valerio, Bea Patrice Cortez, Jairo Garcia, Diane Hipolito, Adriel Motas</small>
+           <div class="col text-right text-light">
+               <small>Created by: Gabriel Marcelo, Heidel Berg Valerio, Bea Patrice Cortez, Jairo Garcia</small>
            </div>
        </div>
    </div>
