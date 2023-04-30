@@ -124,12 +124,7 @@ updateProfile();
               <?php
               echo "<br>";
               $view = new view();
-              $view->getnames();
-              $view->getnames2();
-              $view->getnames3();
-              $view->getnames4();
-              $view->getnames5();
-              $view->getnames8();
+              $view->getInfo();
               ?>
               <?php
               $view = new view();
