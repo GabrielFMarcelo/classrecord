@@ -1,3 +1,4 @@
+<!-- henlo world -->
 <?php
 require_once $_SERVER['DOCUMENT_ROOT'].'/classrecord/resource/php/class/core/init.php';
 
@@ -19,7 +20,7 @@ require_once $_SERVER['DOCUMENT_ROOT'].'/classrecord/resource/php/class/core/ini
 <body>
 
 <section class="login">
-        
+
   <div class="container py-5 h-100">
     <div class="row d-flex justify-content-center align-items-center h-100">
       <div class="col col-md-10">
@@ -33,7 +34,7 @@ require_once $_SERVER['DOCUMENT_ROOT'].'/classrecord/resource/php/class/core/ini
               <div class="card-body p-4 p-lg-5 text-black">
 
                 <form action="" method="post">
-                  <div class="d-flex align-items-center mb-3 pb-1" style="color: #123560;">                    
+                  <div class="d-flex align-items-center mb-3 pb-1" style="color: #123560;">
                     <span class="h1 fw-bold mb-0">Skyhigh Class Record System</span>
                   </div>
                   <?php logd();?>
@@ -45,7 +46,7 @@ require_once $_SERVER['DOCUMENT_ROOT'].'/classrecord/resource/php/class/core/ini
                     <label class="form-label" for="defaultLoginFormPassword">Password</label>
                     <input type="password" id="defaultLoginFormPassword" name="password" class="form-control form-control-lg" required/>
                   </div>
-                  
+
                   <div class="pt-1 mb-4">
                     <input type =hidden name="token" value="<?php echo Token::generate(); ?>">
                     <input  type="submit" class="btn btn-lg btn-block text-light" value="Login"/>
@@ -53,7 +54,7 @@ require_once $_SERVER['DOCUMENT_ROOT'].'/classrecord/resource/php/class/core/ini
                   <div id="emailHelp" class="form-text text-center mt-5 mb-2 text-dark">Not Registered?</div>
                  <div class="">
                    <a href="register.php" target="_blank" class="btn btn-color text-light px-5 mb-5 w-100 text-light fw-bold"> Create an Account</a>
-                 </div>                      
+                 </div>
                 </form>
 
               </div>
@@ -64,7 +65,7 @@ require_once $_SERVER['DOCUMENT_ROOT'].'/classrecord/resource/php/class/core/ini
     </div>
   </div>
 </section>
-        
+
         <script src="vendor/js/jquery.js"></script>
         <script src="vendor/js/popper.js"></script>
         <script src="vendor/js/bootstrap.min.js"></script>
