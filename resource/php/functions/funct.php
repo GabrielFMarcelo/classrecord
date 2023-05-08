@@ -46,7 +46,7 @@ function pError($error){
 
 function vald(){
      if(input::exists()){
-      if(Token::check(Input::get('Token'))){
+      if(Token::check(input::get('Token'))){
          if(!empty($_POST['College'])){
              $_POST['College'] = implode(',',input::get('College'));
          }else{
@@ -89,7 +89,7 @@ function vald(){
             )));
 
             if($validate->passed()){
-                $user = new user();
+                $user = new User();
                 $salt = Hash::salt(32);
                 try {
                     $user->create(array(
@@ -133,17 +133,17 @@ function vald(){
         }
 
         function logd(){
-            if(Input::exists()){
-                if(Token::check(Input::get('token'))){
+            if(input::exists()){
+                if(Token::check(input::get('token'))){
                     $validate = new Validate();
                     $validation = $validate->check($_POST,array(
                         'username' => array('required'=>true),
                         'password'=> array('required'=>true)
                     ));
                     if($validation->passed()){
-                        $user = new user();
-                        $remember = (Input::get('remember') ==='on') ? true :false;
-                        $login = $user->login(Input::get('username'),Input::get('password'),$remember);
+                        $user = new User();
+                        $remember = (input::get('remember') ==='on') ? true :false;
+                        $login = $user->login(input::get('username'),input::get('password'),$remember);
                         if($login){
                             if($user->data()->groups == 1){
                                  Redirect::to('template.php');
@@ -165,7 +165,7 @@ function vald(){
         }
 
         function isLogin(){
-            $user = new user();
+            $user = new User();
             if(!$user->isLoggedIn()){
                 Redirect::to('login.php');
             }
@@ -179,7 +179,7 @@ function vald(){
                 echo "<img class='rounded-circle profpic img-thumbnail' alt='100x100' src='resource/img/user.jpg'/>";
             }
         }
-        
+
         function profilePicu(){
             $view = new view();
             if($view->getdpSRA()!=="" || $view->getdpSRA()!==NULL){
@@ -188,7 +188,7 @@ function vald(){
                 echo "<img class='rounded-circle profpicu' alt='100x100' src='data:".$view->getMmSRA().";base64,".base64_encode($view->getdpSRA())."'/>";
             }
         }
-        
+
         function updateProfile(){
             if(input::exists()){
                 if(!empty($_POST['College'])){
@@ -201,7 +201,7 @@ function vald(){
                 }else{
                    $_POST['Role'] ="";
                 }
-        
+
                 $validate = new Validate;
                 $validate = $validate->check($_POST,array(
                     'username'=>array(
@@ -226,10 +226,10 @@ function vald(){
                     'Role'=>array(
                             'required'=>'true'
                     )));
-        
+
                     if($validate->passed()){
-                        $user = new user();
-        
+                        $user = new User();
+
                         try {
                             $user->update(array(
                                 'username'=>input::get('username'),
@@ -247,10 +247,10 @@ function vald(){
                         pError($error);
                         }
                 }
-        
+
             }
         }
-        
+
         function changeP(){
             if(input::exists()){
                 $validate = new Validate;
@@ -266,13 +266,13 @@ function vald(){
                         'required'=>'true',
                         'matches'=>'password'
                     )));
-        
+
                     if($validate->passed()){
-                        $user = new user();
+                        $user = new User();
                         if(Hash::make(input::get('password_current'),$user->data()->salt) !== $user->data()->password){
                             curpassError();
                         }else{
-                            $user = new user();
+                            $user = new User();
                             $salt = Hash::salt(32);
                             try {
                                 $user->update(array(
@@ -291,7 +291,7 @@ function vald(){
                 }
             }
         }
-        
+
         // Function for Inserting a Status
         function insertS(){
           if (!empty($_GET['items'])) {
@@ -313,7 +313,7 @@ function vald(){
             }
           }
         }
-        
+
         function deleteS(){
           if (!empty($_GET['delete'])) {
             $delete = new delete($_GET['delete']);
@@ -334,7 +334,7 @@ function vald(){
             }
           }
         }
-        
+
         // Function for Inserting a Chat
         function insertCht(){
           if (!empty($_GET['chats'])) {
@@ -356,7 +356,7 @@ function vald(){
             }
           }
         }
-        
+
         function deleteCht(){
           if (!empty($_GET['delete'])) {
             $delete = new delete($_GET['delete']);
